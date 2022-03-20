@@ -2,6 +2,9 @@
 flutterPath=https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_2.10.3-stable.tar.xz
 sdkPath=/app/sdk
 
+apt update
+apt install xz-utils
+
 mkdir $sdkPath
 cd $sdkPath
 curl $flutterPath --output flutter.tar.xz
