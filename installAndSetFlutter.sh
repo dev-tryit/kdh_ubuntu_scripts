@@ -2,17 +2,18 @@
 flutterPath=https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_2.10.3-stable.tar.xz
 sdkPath=/app/sdk
 
-apt update
-apt install xz-utils
+sudo apt update && sudo apt install -y lsof && sudo apt install xz-utils
 
-mkdir $sdkPath
-cd $sdkPath
-curl $flutterPath --output flutter.tar.xz
-tar xf flutter.tar.xz
+sudo mkdir $sdkPath
+
+sudo curl $flutterPath --output $sdkPath/flutter.tar.xz
+sudo tar xf $sdkPath/flutter.tar.xz -C $sdkPath/
+
+sudo cp -r /config/init/.bashrc ~/.bashrc
 importStr="export PATH=""$"
 importStr+="PATH:${sdkPath}/flutter/bin"""
-echo $importStr >> ~/.bashrc
+sudo echo $importStr >> ~/.bashrc
 source ~/.bashrc
 
-chmod 700 $sdkPath -R
-chown abc.abc $sdkPath -R
+sudo chmod 700 $sdkPath -R
+sudo chown abc.abc $sdkPath -R
