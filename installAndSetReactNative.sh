@@ -4,6 +4,7 @@ sudo curl -o- $nvmPath | bash
 
 source ~/.profile
 source ~/.bashrc
+source ~/.zshrc 
 
 nvm install --lts
 nvm use --lts
